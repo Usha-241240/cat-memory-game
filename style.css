@@ -24,10 +24,10 @@
 
 body {
   font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
-  background: var(--bg);
-  background-image:
-    radial-gradient(circle at 20% 20%, rgba(179, 157, 232, 0.25) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(139, 111, 212, 0.15) 0%, transparent 50%);
+  background-color: var(--bg);
+  background-image: url("images/cats-pattern.png");
+  background-size: 480px auto;
+  background-repeat: repeat;
   min-height: 100vh;
   color: var(--text);
   line-height: 1.5;
@@ -84,6 +84,78 @@ body {
   letter-spacing: -0.02em;
 }
 
+.title--small {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  margin-bottom: 32px;
+}
+
+/* ===== Выбор сложности ===== */
+.difficulty-screen {
+  text-align: center;
+  padding: 40px 16px;
+}
+
+.difficulty-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.difficulty-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  width: 100%;
+  padding: 20px 24px;
+  text-align: left;
+  background: var(--card);
+  border: 2px solid transparent;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.difficulty-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--purple-light);
+}
+
+.difficulty-card__num {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--purple);
+}
+
+.difficulty-card__name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--purple-dark);
+}
+
+.difficulty-card__hint {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.difficulty-name {
+  margin-top: 8px;
+  font-weight: 600;
+  color: var(--purple);
+  font-size: 0.95rem;
+}
+
+.result-progress {
+  margin-top: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--purple);
+}
+
 /* ===== Кнопки ===== */
 .btn {
   display: inline-block;
@@ -113,6 +185,31 @@ body {
   font-size: 1.25rem;
 }
 
+.btn--secondary {
+  background: var(--card);
+  color: var(--purple-dark);
+  border: 2px solid var(--purple-light);
+  box-shadow: var(--shadow);
+}
+
+.btn--secondary:hover:not(:disabled) {
+  background: #f3eefb;
+  transform: translateY(-2px);
+}
+
+.btn--secondary:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.game-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+}
+
 /* ===== Игровой экран ===== */
 .game-header {
   text-align: center;
@@ -127,7 +224,7 @@ body {
   font-weight: 600;
   color: var(--purple-dark);
   box-shadow: var(--shadow);
-  font-size: 1rem;
+  font-size: 0.95rem;
 }
 
 .phase-hint {
